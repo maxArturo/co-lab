@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel public/src/components --out-dir public/dist/components -w",
     "lint": "eslint ."
   },
   "keywords": [
@@ -15,15 +16,23 @@
   ],
   "author": "Max Alcala (maxarturo@gmail.com)",
   "license": "ISC",
+  "babel": {
+    "presets": [
+      "react"
+    ],
+    "sourceMaps": false
+  },
   "dependencies": {
     "express": "4.14.0",
     "react": "15.1.0"
   },
   "devDependencies": {
     "babel": "6.5.2",
-    "babel-plugin-transform-react-jsx": "6.8.0",
+    "babel-cli": "6.10.1",
+    "babel-preset-react": "6.5.0",
     "eslint": "2.13.1",
     "eslint-config-airbnb-base": "3.0.1",
-    "eslint-plugin-import": "1.9.2"
+    "eslint-plugin-import": "1.9.2",
+    "react-dom": "15.1.0"
   }
 }
