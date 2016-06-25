@@ -1,0 +1,27 @@
+{
+  "name": "co-lab",
+  "version": "1.0.0",
+  "description": "A music synth and collaboration project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "music",
+    "synth",
+    "collaboration"
+  ],
+  "author": "Max Alcala (maxarturo@gmail.com)",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.14.0",
+    "react": "15.1.0"
+  },
+  "devDependencies": {
+    "eslint": "2.13.1",
+    "eslint-config-airbnb-base": "3.0.1",
+    "eslint-plugin-import": "1.9.2"
+  }
+}
