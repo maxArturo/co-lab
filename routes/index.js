@@ -1,8 +1,8 @@
 /* eslint-disable new-cap */
 
-const router   = require('express').Router();
+const router = require('express').Router();
 const HomePage = require('../public/dist/components/App');
-const React    = require('react');
+const React = require('react');
 const ReactDOM = require('react-dom/server');
 
 router.get('/', (req, res) => {

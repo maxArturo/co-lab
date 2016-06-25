@@ -7,7 +7,7 @@
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel public/src/components --out-dir public/dist/components -w",
-    "lint": "eslint ."
+    "lint": "eslint --ignore-pattern public/dist ."
   },
   "keywords": [
     "music",
