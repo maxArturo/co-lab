@@ -2,12 +2,17 @@
   "name": "co-lab",
   "version": "1.0.0",
   "description": "A music synth and collaboration project",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "npm run build && node server.js",
+    "start-dev": "npm run build-dev && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel public/src/components --out-dir public/dist/components -w",
-    "lint": "eslint --ignore-pattern public/dist ."
+    "build": "npm run build-components && npm run browserify && npm run lint", 
+    "build-dev": "npm run build-components && npm run browserify-dev", 
+    "build-components": "babel components --out-dir dist/components",
+    "lint": "eslint .",
+    "browserify": "browserify app.jsx -t babelify | uglifyjs > public/js/app.js",
+    "browserify-dev": "browserify app.jsx -t babelify > public/js/app.js"
   },
   "keywords": [
     "music",
@@ -18,21 +23,32 @@
   "license": "ISC",
   "babel": {
     "presets": [
-      "react"
+      "react",
+      "es2015"
     ],
     "sourceMaps": false
   },
   "dependencies": {
     "express": "4.14.0",
+    "express-handlebars": "3.0.0",
     "react": "15.1.0"
   },
   "devDependencies": {
     "babel": "6.5.2",
     "babel-cli": "6.10.1",
+    "babel-preset-es2015": "6.9.0",
     "babel-preset-react": "6.5.0",
+    "babelify": "7.3.0",
+    "browserify": "13.0.1",
     "eslint": "2.13.1",
     "eslint-config-airbnb-base": "3.0.1",
     "eslint-plugin-import": "1.9.2",
-    "react-dom": "15.1.0"
+    "eslint-plugin-jsx-a11y": "1.5.3",
+    "eslint-plugin-react": "5.2.2",
+    "express-handlebars": "3.0.0",
+    "handlebars": "4.0.5",
+    "react-dom": "15.1.0",
+    "uglify-js": "2.6.4",
+    "uniq": "1.0.1"
   }
 }
