@@ -1,16 +1,12 @@
-const React = require('react');
+const react = require('react');
+const messageList = require('./chat/MessageList.jsx');
 
-const HomePage = React.createClass({
-  getDefaultProps: () => {
-    return {
-      size: 100
-    }
-  },
-
+const HomePage = react.createClass({
   render: () => {
     return (
-      <div className = "homePage"> 
-        <p>yo yo</p>
+      <div className = "homePage">
+        <h3>This is Co-Lab, a collaboration site.</h3>
+        <messageList />
       </div>
     );
   }
