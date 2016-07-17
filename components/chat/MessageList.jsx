@@ -1,5 +1,5 @@
-const react = require('react');
-const message = require('./Message.jsx');
+const React = require('react');
+const Message = require('./Message');
 
 const simulatedData = [{
     id: 1,
@@ -16,13 +16,13 @@ const simulatedData = [{
     text: 'Sup!'
 }];
 
-const messageList = react.createClass({
+const MessageList = React.createClass({
     render: () => {
         const messages = simulatedData.map(m => {
             return (
-                <message author={m.author} id={m.id}>
+                <Message author={m.author} key={m.id}>
                     {m.text}
-                </message>
+                </Message>
             );
         });
         return (
@@ -33,4 +33,4 @@ const messageList = react.createClass({
     }
 });
 
-module.exports = messageList;
+module.exports = MessageList;

@@ -11,8 +11,8 @@
     "build-dev": "npm run build-components && npm run browserify-dev", 
     "build-components": "babel components --out-dir dist/components",
     "lint": "eslint .",
-    "browserify": "browserify app.jsx -t babelify | uglifyjs > public/js/app.js",
-    "browserify-dev": "browserify app.jsx -t babelify > public/js/app.js"
+    "browserify": "browserify app.jsx --extension=.jsx -t babelify | uglifyjs > public/js/app.js",
+    "browserify-dev": "browserify app.jsx --extension=.jsx -t babelify > public/js/app.js"
   },
   "keywords": [
     "music",
