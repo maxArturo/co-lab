@@ -1,12 +1,12 @@
 const React = require('react');
-const MessageList = require('./chat/MessageList');
+const Chat = require('./chat/Chat');
 
 const HomePage = React.createClass({
-  render: () => {
+  render: function render() {
     return (
       <div className = "homePage">
-        <h3>This is Co-Lab, a collaboration site.</h3>
-        <MessageList />
+        <h3>chat</h3>
+        <Chat />
       </div>
     );
   }

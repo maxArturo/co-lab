@@ -7,10 +7,10 @@
     "start": "npm run build && node server.js",
     "start-dev": "npm run build-dev && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run build-components && npm run browserify && npm run lint", 
-    "build-dev": "npm run build-components && npm run browserify-dev", 
+    "build": "npm run build-components && npm run browserify && npm run lint",
+    "build-dev": "npm run build-components && npm run browserify-dev",
     "build-components": "babel components --out-dir dist/components",
-    "lint": "eslint .",
+    "lint": "eslint . --fix",
     "browserify": "browserify app.jsx --extension=.jsx -t babelify | uglifyjs > public/js/app.js",
     "browserify-dev": "browserify app.jsx --extension=.jsx -t babelify > public/js/app.js"
   },
@@ -29,6 +29,7 @@
     "sourceMaps": false
   },
   "dependencies": {
+    "body-parser": "1.15.2",
     "express": "4.14.0",
     "express-handlebars": "3.0.0",
     "react": "15.1.0"
