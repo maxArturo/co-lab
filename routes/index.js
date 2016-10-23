@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const renderIndex = require('../controllers/index').renderIndex;
-const apiRouter = require('./api/index');
+const renderIndex = require('../controllers').renderIndex;
+const apiRouter = require('./api');
 
 router.get('/', renderIndex);
 
@@ -11,3 +11,4 @@ router.get('/about', (req, res) => {
 router.use('/', apiRouter);
 
 module.exports = router;
+

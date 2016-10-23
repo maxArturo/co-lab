@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "npm run build && node server.js",
+    "debug": "npm run build && node --debug server.js",
     "start-dev": "npm run build-dev && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run build-components && npm run browserify && npm run lint",

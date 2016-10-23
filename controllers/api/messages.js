@@ -8,7 +8,7 @@ function queryMessages(maxMessages = messageLimit) {
 function addMessage(message) {
   if (messages.length >= messageLimit) messages.unshift();
   messages.push(message);
-  return messages;
+  return { messages: messages.slice(-messageLimit) };
 }
 
 function getMessages(req, res) {
@@ -19,7 +19,7 @@ function postMessage(req, res) {
   const body = req.body;
   if (!body || !body.message) return res.sendStatus(400);
 
-  return res.json(addMessage(body.message));
+  return res.json(addMessage(body));
 }
 
 module.exports = {
@@ -27,3 +27,4 @@ module.exports = {
   postMessage,
   queryMessages,
 };
+
