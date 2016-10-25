@@ -13,7 +13,8 @@
     "build-components": "babel components --out-dir dist/components",
     "lint": "eslint . --fix",
     "browserify": "browserify app.jsx --extension=.jsx -t babelify | uglifyjs > public/js/app.js",
-    "browserify-dev": "browserify app.jsx --extension=.jsx -t babelify > public/js/app.js"
+    "browserify-dev": "browserify app.jsx --extension=.jsx -t babelify > public/js/app.js",
+    "watch": "npm-watch"
   },
   "keywords": [
     "music",
@@ -49,8 +50,20 @@
     "eslint-plugin-react": "5.2.2",
     "express-handlebars": "3.0.0",
     "handlebars": "4.0.5",
+    "npm-watch": "0.1.6",
     "react-dom": "15.1.0",
     "uglify-js": "2.6.4",
     "uniq": "1.0.1"
+  },
+  "watch": {
+    "start-dev": {
+      "patterns": [
+        "components",
+        "controllers",
+        "routes",
+        "views"
+      ],
+      "extensions": "js, jsx, handlebars"
+    }
   }
 }
