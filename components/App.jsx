@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Chat from './chat/Chat';
+import ChatContainer from './chat/ChatContainer';
 
 export default class App extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ export default class App extends Component {
     return (
       <div>
         <h3>chat</h3>
-        <Chat messages={this.props.messages}/>
+        <ChatContainer messages={this.props.messages}/>
       </div>
     );
   }
