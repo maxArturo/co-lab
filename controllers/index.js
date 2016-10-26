@@ -1,12 +1,15 @@
 /* eslint-disable new-cap */
 
-const HomePage = require('../dist/components/HomePage');
+const App = require('../dist/components/App').default;
 const React = require('react');
 const ReactDOM = require('react-dom/server');
+const messagesService = require('../services/messages');
 
 function renderIndex(req, res) {
-  const homeFactory = React.createFactory(HomePage);
-  const output = ReactDOM.renderToString(homeFactory());
+  const appElement = React.createElement(
+      App, messagesService.queryMessages(), null
+    );
+  const output = ReactDOM.renderToString(appElement);
 
   res.render('index/home', {
     reactMarkup: output,

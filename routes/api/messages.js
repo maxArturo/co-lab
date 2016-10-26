@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const messageController = require('../../controllers/api/messages');
+const messageController = require('../../services/messages');
 
 router.get('/', messageController.getMessages);
 router.post('/', messageController.postMessage);

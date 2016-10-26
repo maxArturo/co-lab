@@ -1,8 +1,12 @@
-const React = require('react');
-const Message = require('./Message');
+import React, { Component } from 'react';
+import Message from './Message';
 
-const MessageList = React.createClass({
-  render: function render() {
+export default class MessageList extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
     const messages = this.props.messages.map((m, i) => {
       return (
         <Message author={m.author} key={i} timestamp={(new Date()).toTimeString()}>
@@ -12,7 +16,7 @@ const MessageList = React.createClass({
     });
 
     return (
-      <div className="messageList">
+      <div>
         <table>
           <tbody>
           {messages}
@@ -21,6 +25,4 @@ const MessageList = React.createClass({
       </div>
     );
   }
-});
-
-module.exports = MessageList;
+}

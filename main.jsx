@@ -1,9 +1,9 @@
 const ReactDOM = require('react-dom');
 const React = require('react');
-const HomePage = require('./components/HomePage.jsx');
+const App = require('./components/App').default;
 
 ReactDOM.render(
-  <HomePage />,
+  <App />,
   document.getElementById('react-app')
 );
 

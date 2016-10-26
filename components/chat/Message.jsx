@@ -1,7 +1,11 @@
-const React = require('react');
+import React, { Component } from 'react';
 
-const Message = React.createClass({
-  render: function render() {
+export default class Message extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
     return (
       <tr className="messageBody">
         <td>
@@ -13,6 +17,4 @@ const Message = React.createClass({
       </tr>
     );
   }
-});
-
-module.exports = Message;
+}

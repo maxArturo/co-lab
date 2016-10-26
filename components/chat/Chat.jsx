@@ -1,54 +1,59 @@
-const React = require('react');
-const MessageList = require('./MessageList');
-const MessageForm = require('./MessageForm');
+import React, { Component } from 'react';
+import MessageList from './MessageList';
+import MessageForm from './MessageForm';
+
 const apiUrl = '/api/v1/messages';
 
-const Chat = React.createClass({
-  getInitialState: () => {
-    return { messages: [] };
-  },
+export default class Chat extends Component {
+  constructor(props) {
+    super(props);
 
-  componentDidMount: function componentDidMount() {
+    this.state = Object.assign({}, props);
+    this.getMessages = this.getMessages.bind(this);
+    this.handleMessageSubmitted = this.handleMessageSubmitted.bind(this);
+  }
+
+  componentDidMount() {
     this.getMessages();
-  },
+  }
 
-  getMessages: function getMessages() {
+  getMessages() {
     $.ajax({
       url: apiUrl,
       dataType: 'json',
       cache: false,
-      success: function success(data) {
+      success: data => {
+        console.log('got messages: ', data);
         this.setState({ messages: data.messages });
-      }.bind(this),
-      error: function error(xhr, status, err) {
+      },
+      error: (xhr, status, err) => {
         console.log(this.props.url, status, err.toString());
-      }.bind(this)
+      }
     });
-  },
+  }
 
-  handleMessageSubmitted: function handleMessageSubmitted(msg) {
+  handleMessageSubmitted(msg) {
     const { author, message } = msg;
     $.ajax({
       url: apiUrl,
       method: 'POST',
       dataType: 'json',
       data: { author, message },
-      success: function success(data) {
+      success: data => {
         this.setState({ messages: data.messages });
-      }.bind(this),
-      error: function error(xhr, status, err) {
-      }.bind(this)
+      },
+      error: (xhr, status, err) => {
+        console.log(err);
+      }
     });
-  },
+  }
 
-  render: function() {
+  render() {
     return (
-      <div className="chat">
+      <div>
         <MessageList messages={this.state.messages}/>
         <MessageForm onMessageSubmit={this.handleMessageSubmitted}/>
       </div>
     );
   }
-});
-
-module.exports = Chat;
+}
